@@ -28,15 +28,6 @@ func New() *gorm.DB {
   ADDRESS := os.Getenv("DB_ADDRESS")
   DBNAME := "nogizaka"
 
-  err := envconfig.Process("db", &conn)
-  if err == nil {
-    USER = conn.User
-    PASS = conn.Password
-    PROTOCOL = conn.Protocol
-    ADDRESS = conn.Address
-    DBNAME = conn.Schema
-  }
-
   CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "(" + ADDRESS + "" + ")" + "/" + DBNAME
 
   db, err := gorm.Open(DBMS, CONNECT+"?charset=utf8mb4&collation=utf8mb4_general_ci&parseTime=true")
