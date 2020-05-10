@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/nogizaka-api/router"
+  "github.com/nogizaka-api/router"
 )
 
 func main() {
-	r := router.New()
-	r.Logger.Fatal(r.Start(":8000"))
+  r := router.New()
+  r.Logger.Fatal(r.Start(":8000"))
 }
