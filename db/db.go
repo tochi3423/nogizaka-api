@@ -22,10 +22,10 @@ func New() *gorm.DB {
   var conn Conn
 
   DBMS := "mysql"
-  USER := "souta"
-  PASS := "souta3423"
-  PROTOCOL := "tcp"
-  ADDRESS := "localhost:3306"
+  USER := os.Getenv("DB_USER")
+  PASS := os.Getenv("DB_PASSWORD")
+  PROTOCOL := os.Getenv("DB_PROTOCOL")
+  ADDRESS := os.Getenv("DB_ADDRESS")
   DBNAME := "nogizaka"
 
   err := envconfig.Process("db", &conn)
